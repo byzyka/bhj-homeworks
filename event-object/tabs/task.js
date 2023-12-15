@@ -13,7 +13,7 @@ let openedTab = null;
 function showContent(i) {
 
     content.forEach((item, index) => {
-        co
+        
         if (i == index) {
             item.classList.add('tab__content_active');
         } else {

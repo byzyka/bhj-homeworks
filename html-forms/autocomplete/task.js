@@ -1,7 +1,8 @@
 class Autocomplete {
   constructor( container ) {
     this.container = container;
-    this.input = container.querySelector( '.autocomplete__input' );
+    this.input = container.querySelector( '.autocomplete__input' ); 
+   
     this.searchInput = container.querySelector( '.autocomplete__search' );
     this.list = container.querySelector( '.autocomplete__list' );
     this.valueContainer = container.querySelector( '.autocomplete__value' );
@@ -9,6 +10,7 @@ class Autocomplete {
 
     this.registerEvents();
   }
+ 
 
   registerEvents() {
     this.valueContainer.addEventListener( 'click', e => {
@@ -66,8 +68,20 @@ class Autocomplete {
 
     this.list.innerHTML = html.join('');
   }
+  
 
   getMatches( text ) {
+    const resultArr = [];
+    const listOptions = [...this.input.options];
+
+    listOptions.forEach((option) => {
+      if (option.textContent.includes(text)) {
+        resultArr.push({ text: option.textContent, value: option.value });
+      }
+    });
+
+    
+
     /*
       TODO: этот метод нужно дописать
       text - фраза, которую вводят в поле поиска
@@ -81,12 +95,7 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    return [
-      {
-        text: 'Чубакка',
-        value: '1'
-      }
-    ];
+    return resultArr;
   }
 }
 

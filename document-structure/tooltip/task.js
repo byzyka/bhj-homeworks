@@ -5,15 +5,18 @@ let header = document.querySelector('.header');
 //перебираем
 tooltip.forEach(itemTooltip => {
     //ищем координаты где тыкнули
-  let {top, left} = itemTooltip.getBoundingClientRect();
+  let coords = itemTooltip.getBoundingClientRect();
+let left = coords.left;
+let top = coords.itemTooltip;
+
   
- 
+ //записать в топ координаты дива с подсказкой
  
 
     //это то,что должно быть написано в подсказке
     let text = itemTooltip.title;
     itemTooltip.insertAdjacentHTML
-    ('afterEnd', `<div class="tooltip" style="left: ${left}px; top: ${(top - 20)}px">
+    ('afterEnd', `<div class="tooltip" style="left: ${left}px; top: ${(top)}px">
     ${text}
     </div>`);
     //навешиваем прослушку

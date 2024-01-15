@@ -1,27 +1,34 @@
+//все подсказки
 let tooltip = document.querySelectorAll('.has-tooltip');
+let header = document.querySelector('.header');
 
-
+//перебираем
 tooltip.forEach(itemTooltip => {
-   
+    //ищем координаты где тыкнули
+  let {top, left} = itemTooltip.getBoundingClientRect();
+  
+ 
+ 
 
+    //это то,что должно быть написано в подсказке
+    let text = itemTooltip.title;
+    itemTooltip.insertAdjacentHTML
+    ('afterEnd', `<div class="tooltip" style="left: ${left}px; top: ${(top - 20)}px">
+    ${text}
+    </div>`);
+    //навешиваем прослушку
     itemTooltip.addEventListener('click', event => {
         event.preventDefault();
+      
 
-        let { top, left } = itemTooltip.getBoundingClientRect()
-       
+        let openTooltip = itemTooltip.nextElementSibling;
+        console.log(openTooltip);
 
-        itemTooltip.insertAdjacentHTML('beforeEnd', `<div class="tooltip" style="left: ${Math.round(left)}px; top: ${Math.round(top) + 20}px">
-  ${itemTooltip.title}
- </div>`);
 
-        let newTooltip = itemTooltip.querySelector('.tooltip');
-        
-
-        if (newTooltip.classList.contains('tooltip')) {
-            newTooltip.classList.add('tooltip_active');
+        if (openTooltip.classList.contains('tooltip')) {
+            openTooltip.classList.toggle('tooltip_active');
         }
 
-         
-        })
-   
+    })
+
 })

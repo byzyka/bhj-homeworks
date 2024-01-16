@@ -14,7 +14,7 @@ console.log(taskList)
 form.addEventListener('click', event => {
   event.preventDefault();
 
-  if (inputTask.value == inputTask.value.trim()) {
+  if (inputTask.value === inputTask.value.trim() && inputTask.value !== "") {
     taskList.insertAdjacentHTML('beforeEnd', `<div class="task">
         <div class="task__title">
           ${inputTask.value}
@@ -26,13 +26,13 @@ form.addEventListener('click', event => {
   }
 
   let taskRemove = [...document.querySelectorAll('.task__remove')];
+  console.log(taskRemove);
 
-  taskRemove.forEach(task => {
-    let list = task.closest('.task');
 
-    task.onclick = function () {
-      list.remove()
-    };
+  //let list = taskRemove.find(task => task == task.closest('.task')) 
+//console.log(list)
+    
+    //  list.remove()
+   
 
   })
-})

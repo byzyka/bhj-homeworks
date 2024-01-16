@@ -14,7 +14,7 @@ console.log(taskList)
 form.addEventListener('click', event => {
   event.preventDefault();
 
-  if (inputTask.value = inputTask.value.trim()) {
+  if (inputTask.value == inputTask.value.trim()) {
     taskList.insertAdjacentHTML('beforeEnd', `<div class="task">
         <div class="task__title">
           ${inputTask.value}

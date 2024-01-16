@@ -25,14 +25,15 @@ form.addEventListener('click', event => {
     form.reset();
   }
 
-  let taskRemove = [...document.querySelectorAll('.task__remove')];
-  console.log(taskRemove);
+  
 
+  taskList.addEventListener('click', function(event) {
+    let target = event.target;
+    if (target.classList.contains('task__remove')) {
+        let taskTargetItem = target.closest('.task');
+        taskTargetItem.remove();
 
-  //let list = taskRemove.find(task => task == task.closest('.task')) 
-//console.log(list)
-    
-    //  list.remove()
-   
-
+    }
   })
+  
+})

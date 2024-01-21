@@ -42,3 +42,4 @@ window.addEventListener('beforeunload', () => {
         document.cookie = 'modalClosed=false';
     }
 })
+
